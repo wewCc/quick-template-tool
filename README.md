@@ -1,4 +1,4 @@
-# template-tools
+# quick-template-tools
 A command tool.To generate some template,autodownload some dependencies.
 
 该项目用于快速下载webpack的loader依赖
