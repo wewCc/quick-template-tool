@@ -47,9 +47,7 @@ const downloadWebpackLoader = (downloadSource) => {
  * @param eventName  the name for operate arguments(需要操作的选项名称)
  */
 const matchEvent = (eventName) => {
-    let webpackOperatorElement = switchToolName === null ?
-        webpackOperator[eventName] :
-        switchToolName;
+    let webpackOperatorElement = webpackOperator[eventName]
     if (typeof webpackOperatorElement === "string") {
         Promise.all([execFunc(webpackOperatorElement, eventName)]).then(res => {
             consoleConfirm("download Start!", infoStatus.INFO)
