@@ -10,10 +10,18 @@ Usage: main [options]
 generate some dependencies or some templates quickly
 
 Options:
-  -V, --version               output the version number
-  -d,--download <loader>      to download webpack loader(use ',' to split args)
-                              (multi choices: css,file,webpack)
-  -s,--switchTool <toolName>  to switch the download tool,need to use with -d (choices: "npm", "cnpm", default: "npm")
-  -h, --help                  display help for command
+  -V, --version                                                           output the version number
+  -d,--download <loader>                                                  to download webpack loader(use ',' to split args)
+                                                                          (multi choices: css,file,webpack)
+  -s,--switchTool <toolName>                                              to switch the download tool,need to use with -d (choices:
+                                                                          "npm", "cnpm")
+  -g,--generate <entryPath> <outputPath> <outputFileName> <generatePath>  entryPath  the entry file Path
+                                                                          outputPath  the output file path
+                                                                          outputFileName the output file name
+                                                                          generatePath the path of finally generate
+                                                                          example: quick-template-tool -g "test.js bundle.js dist/"
+                                                                          notice: "" is necessary for this option!!
+  -h, --help                                                              display help for command
 
 ```
+更新中(不定期修改)...

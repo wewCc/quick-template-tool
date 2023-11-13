@@ -1,7 +1,7 @@
 const {exec} = require("child_process")
-const {webpackOperator} = require("./operatorDetail")
+const {webpackOperator,validArg} = require("./operatorDetail")
 const {consoleConfirm} = require("./commonTools")
-let validArg = ["webpack", "css", "file"]
+const {infoStatus}=require("./commonInfo")
 let switchToolName = null
 /**
  *
@@ -14,10 +14,10 @@ const switchTools = async (toolName, down) => {
 const checkExistsPackage = (toolName, down) => {
     exec(`npm list ${toolName} -g`, (error, stdout) => {
         if (error) {
-            consoleConfirm(toolName + "not existed!!", "\u001b[31m")
+            consoleConfirm(toolName + "not existed!!", infoStatus.ERROR)
             return;
         }
-        consoleConfirm("switch to cnpm", "\u001b[36m")
+        consoleConfirm("switch to cnpm", infoStatus.INFO)
         switchToolName = toolName
         if (switchToolName != null) {
             downloadWebpackLoader(down)
@@ -33,7 +33,7 @@ const downloadWebpackLoader = (downloadSource) => {
     let args = downloadSource["download"]?.split(",")
     args?.filter(item => {
         if (validArg.indexOf(item) === -1) {
-            consoleConfirm(`invalid arg for -d:  ${item}`, "\u001b[31m")
+            consoleConfirm(`invalid arg for -d:  ${item}`, infoStatus.ERROR)
             return false
         }
         return validArg.indexOf(item) !== -1
@@ -52,7 +52,7 @@ const matchEvent = (eventName) => {
         switchToolName;
     if (typeof webpackOperatorElement === "string") {
         Promise.all([execFunc(webpackOperatorElement, eventName)]).then(res => {
-            consoleConfirm("download Start!", "\u001b[36m")
+            consoleConfirm("download Start!", infoStatus.INFO)
         })
     } else if (typeof webpackOperatorElement === "object") {
         let eventBuckets = []
@@ -61,7 +61,7 @@ const matchEvent = (eventName) => {
                 eventBuckets.push(execFunc(command, eventName))
             })
             Promise.all(eventBuckets).then(res => {
-                consoleConfirm("download Start!", "\u001b[36m")
+                consoleConfirm("download Start!", infoStatus.INFO)
             })
         }
     }
@@ -75,10 +75,10 @@ const matchEvent = (eventName) => {
 const execFunc = (command, name) => {
     exec(command, (error, stdout) => {
         if (error) {
-            consoleConfirm(`Exception:${name} download Failed.Caused by ${error}`, "\u001b[31m")
+            consoleConfirm(`Exception:${name} download Failed.Caused by ${error}`, infoStatus.ERROR)
             return;
         }
-        consoleConfirm(`${name} download Success!`, "\u001b[32m")
+        consoleConfirm(`${name} download Success!`, infoStatus.SUCCESS)
     })
 }
 
