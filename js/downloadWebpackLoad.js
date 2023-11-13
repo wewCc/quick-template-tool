@@ -50,7 +50,7 @@ const matchEvent = (eventName) => {
     let webpackOperatorElement = webpackOperator[eventName]
     if (typeof webpackOperatorElement === "string") {
         Promise.all([execFunc(webpackOperatorElement, eventName)]).then(res => {
-            consoleConfirm(eventName+"download Start!", infoStatus.INFO)
+            consoleConfirm(eventName+" download Start!", infoStatus.INFO)
         })
     } else if (typeof webpackOperatorElement === "object") {
         let eventBuckets = []
@@ -59,7 +59,7 @@ const matchEvent = (eventName) => {
                 eventBuckets.push(execFunc(command, eventName))
             })
             Promise.all(eventBuckets).then(res => {
-                consoleConfirm(eventName+"download Start!", infoStatus.INFO)
+                consoleConfirm(eventName+" download Start!", infoStatus.INFO)
             })
         }
     }
