@@ -1,6 +1,6 @@
 {
   "name": "quick-template-tool",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A command tool.To generate some template,autodownload some dependencies.",
   "main": "./bin/main.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "commander": "^11.1.0"
   },
   "dependencies": {
-    "quick-template-tool": "^1.0.1"
+    "commander": "^11.1.0",
+    "quick-template-tool": "^1.0.2"
   }
 }
