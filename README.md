@@ -2,6 +2,10 @@
 A command tool.To generate some template,autodownload some dependencies.
 
 该项目用于快速下载webpack的loader依赖
+安装说明:
+```bash
+npm i quick-template-tool
+```
 使用用法如下:
 ```bash
 root>>  quick-template-tool -h
