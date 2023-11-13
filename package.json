@@ -1,5 +1,5 @@
 {
-  "name": "template-tools",
+  "name": "quick-template-tool",
   "version": "1.0.0",
   "description": "A command tool.To generate some template,autodownload some dependencies.",
   "main": "main.js",
@@ -9,7 +9,7 @@
   "bin": {
     "quick-template-tool": "main.js"
   },
-  "author": "",
+  "author": "Cc",
   "license": "ISC",
   "devDependencies": {
     "commander": "^11.1.0"

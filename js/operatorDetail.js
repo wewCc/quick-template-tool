@@ -1,3 +1,7 @@
+/**
+ * 用于下载的枚举
+ * @type {string}
+ */
 let installTemplate = `npm install `
 let initTemplate = `npm init`
 let webpackOperator = {

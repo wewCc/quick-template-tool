@@ -1,3 +1,7 @@
+/**
+ * 公共类
+ * @type {{author: string, description: string, version: string}}
+ */
 let commonInfo = {
     version: "1.0.0",
     author: "cc",
