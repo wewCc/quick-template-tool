@@ -4,19 +4,21 @@ const {commonInfo} = require("../js/commonInfo.js")
 const {generateTemplateForWebPack} = require("../js/webpackFileGenerate/index")
 const {switchTools, downloadWebpackLoader} = require("../js/downloadWebpackLoad.js")
 program.version(commonInfo.version)
+    .usage("[options]")
+    .name("quick-template-tool")
     .description(commonInfo.description)
 
 program.addOption(new Option("-d,--download <loader>",
     "to download webpack loader(use ',' to split args)\n" +
-    "(multi choices: css,file,webpack)"))
+    "(multi choices: css,file,webpack)\n\n"))
     .addOption(new Option("-s,--switchTool <toolName>", "to switch the download tool,need to use with -d")
         .choices(["npm", "cnpm"]))
     .addOption(new Option("-g,--generate <entryPath> <outputPath> <outputFileName> <generatePath>",
-        "entryPath  the entry file Path\n" +
-        "outputPath  the output file path\n" +
-        "outputFileName the output file name\n" +
-        "generatePath the path of finally generate\n" +
-        'example: quick-template-tool -g "test.js bundle.js dist/" ' + "\n" +
+        "to generate webpack.config.js\nfor detail:\n\nentryPath  the entry file Path\n" +
+        "outputPath:  the output file path\n" +
+        "outputFileName: the output file name\n" +
+        "generatePath: the path of finally generate\n\n" +
+        'example: quick-template-tool -g "test.js bundle.js dist/" ' + "\n\n" +
         'notice: "" is necessary for this option!!'
     ))
     .action(option => {
